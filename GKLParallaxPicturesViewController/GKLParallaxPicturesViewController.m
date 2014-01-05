@@ -287,4 +287,15 @@ static CGFloat PageControlHeight = 20.0f;
     [self updateOffsets];
 }
 
+-(void) dealloc
+{
+    //it's a good idea to set these to nil here to avoid
+    //sending messages to a deallocated viewcontroller
+    //this is true even if your project is using ARC, unless
+    //you are targeting iOS 5 as a minimum deployment target
+    _imageScroller.delegate = nil;
+    _transparentScroller.delegate = nil;
+    _contentScrollView.delegate = nil;
+}
+
 @end
